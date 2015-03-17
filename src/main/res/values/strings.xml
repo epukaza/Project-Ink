@@ -1,7 +1,5 @@
 <resources>
-<<<<<<< HEAD
-    <string name="app_name">InkHead2</string>
-
+    <string name="app_name">InkHead</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 </resources>
