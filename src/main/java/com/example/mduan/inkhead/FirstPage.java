@@ -63,7 +63,7 @@ public class FirstPage extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_first_page, container, false);
-            Button b = (Button) getView().findViewById(R.id.button);
+            Button b = (Button) rootView.findViewById(R.id.button);
 
 
             return rootView;
