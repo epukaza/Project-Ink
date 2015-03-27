@@ -6,8 +6,18 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity$PlaceholderFragment"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:weightSum="1"
+    android:background="#ffffffff">
 
+
+    <ImageView
+        android:layout_width="260dp"
+        android:layout_height="0dp"
+        android:id="@+id/imageView"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.46"
+        android:src="@drawable/ianlogo"/>
 
     <TextView
         android:layout_width="wrap_content"
