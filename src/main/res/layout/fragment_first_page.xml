@@ -11,13 +11,13 @@
     android:background="#ffffffff">
 
 
-    <ImageView
+    <TextView
         android:layout_width="260dp"
         android:layout_height="0dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.46"
-        android:src="@drawable/ianlogo"/>
+        android:src="@drawable/inkheadlogo"/>
 
     <TextView
         android:layout_width="wrap_content"
