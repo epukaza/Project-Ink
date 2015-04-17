@@ -4,21 +4,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.content.Intent;
 
-public class MainActivity extends ActionBarActivity {
+
+public class UserPhotoWall extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user_photo_wall);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_user_photo_wall, menu);
         return true;
     }
 
@@ -35,19 +35,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    /** Called when the user clicks the Artist button */
-    public void chooseArtist(View view) {
-        Intent intent = new Intent(this, ArtistProfile.class);
-        // Do something in response to button
-        startActivity(intent);
-    }
-
-    /** Called when the user clicks the Canvas button */
-    public void chooseCanvas(View view) {
-        Intent intent = new Intent(this, UserPhotoWall.class);
-        // Do something in response to button
-        startActivity(intent);
     }
 }

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:weightSum="1"
-    android:background="#ffffffff">
+    android:background="@drawable/tattoo_online_dnu">
 
 
     <TextView
@@ -17,16 +17,22 @@
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.46"
-        android:src="@drawable/inkheadlogo"/>
+        android:background="@drawable/inkheadlogo" /> <!--What the shit src >:( -->
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="I am a(n)"
+        android:text="@string/greetings"
         android:id="@+id/textView"
-        android:layout_gravity="center"
-        android:layout_margin="20dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:textColor="#ffb4b3b3"
+        android:layout_weight="0.04"
+        android:textSize="35dp"
+        android:textStyle="bold|italic"
+        android:typeface="serif" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -39,14 +45,16 @@
             android:layout_height="wrap_content"
             android:text="Artist"
             android:id="@+id/button"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:onClick="chooseArtist" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Canvas"
             android:id="@+id/button2"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginLeft="20dp"
+            android:onClick="chooseCanvas" />
 
     </LinearLayout>
 

@@ -23,6 +23,10 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
+        <activity
+            android:name=".UserPhotoWall"
+            android:label="@string/title_activity_user_photo_wall" >
+        </activity>
     </application>
 
 </manifest>

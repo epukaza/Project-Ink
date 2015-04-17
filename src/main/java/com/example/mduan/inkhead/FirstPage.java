@@ -19,13 +19,14 @@ public class FirstPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_page);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "lPxykPJYeGFvC4wntofRpIfurIxBsD5F863NZKOM", "x3ofUyzEhn2m7CY4F875HPr0wDGQiYQwHkB1VpRB");
+        //if (savedInstanceState == null) {
+        //    getSupportFragmentManager().beginTransaction()
+        //            .add(R.id.container, new PlaceholderFragment())
+        //            .commit();
+        //}
+        //Mike: Temporarially disabled for error handling
+        //Parse.enableLocalDatastore(this);
+        //Parse.initialize(this, "lPxykPJYeGFvC4wntofRpIfurIxBsD5F863NZKOM", "x3ofUyzEhn2m7CY4F875HPr0wDGQiYQwHkB1VpRB");
 
     }
 
