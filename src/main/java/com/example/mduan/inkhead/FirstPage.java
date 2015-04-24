@@ -1,5 +1,6 @@
 package com.example.mduan.inkhead;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -18,15 +19,7 @@ public class FirstPage extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_page);
-        //if (savedInstanceState == null) {
-        //    getSupportFragmentManager().beginTransaction()
-        //            .add(R.id.container, new PlaceholderFragment())
-        //            .commit();
-        //}
-        //Mike: Temporarially disabled for error handling
-        //Parse.enableLocalDatastore(this);
-        //Parse.initialize(this, "lPxykPJYeGFvC4wntofRpIfurIxBsD5F863NZKOM", "x3ofUyzEhn2m7CY4F875HPr0wDGQiYQwHkB1VpRB");
+        setContentView(R.layout.fragment_first_page);
 
     }
 
@@ -52,23 +45,20 @@ public class FirstPage extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_first_page, container, false);
-            Button b = (Button) rootView.findViewById(R.id.button);
 
 
-            return rootView;
-
-        }
+    /** Called when the user clicks the Artist button */
+    public void chooseArtist(View view) {
+        //  Intent intent = new Intent(this, ArtistProfile.class);
+        // Do something in response to button
+        //   startActivity(intent);
     }
+
+    /** Called when the user clicks the Canvas button */
+    public void chooseCanvas(View view) {
+        Intent intent = new Intent(this, UserPhotoWall.class);
+        // Do something in response to button
+        startActivity(intent);
+    }
+
 }

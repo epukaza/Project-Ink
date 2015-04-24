@@ -4,7 +4,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.content.Intent;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -35,19 +34,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    /** Called when the user clicks the Artist button */
-    public void chooseArtist(View view) {
-        Intent intent = new Intent(this, ArtistProfile.class);
-        // Do something in response to button
-        startActivity(intent);
-    }
-
-    /** Called when the user clicks the Canvas button */
-    public void chooseCanvas(View view) {
-        Intent intent = new Intent(this, UserPhotoWall.class);
-        // Do something in response to button
-        startActivity(intent);
     }
 }

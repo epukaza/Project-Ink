@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".FirstPage"
-            android:label="@string/app_name" >
+            android:label="InkHead" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
