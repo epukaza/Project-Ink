@@ -56,7 +56,7 @@ public class FirstPage extends ActionBarActivity {
 
     /** Called when the user clicks the Canvas button */
     public void chooseCanvas(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, UserPhotoWall.class);
         // Do something in response to button
         startActivity(intent);
     }
