@@ -17,7 +17,6 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity implements AbsListView.OnScrollListener, AbsListView.OnItemClickListener, AdapterView.OnItemLongClickListener{
@@ -27,7 +26,7 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnScr
 
     private String TAG = "hello";
     private boolean mHasRequestedMore = false;
-    private ArrayList<String> mData;
+    private ArrayList<ParseObject> mData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,8 +102,8 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnScr
     }
 
     private void onLoadMoreItems() {
-        final ArrayList<String> sampleData = generateData();
-        for (String data : sampleData) {
+        final ArrayList<ParseObject> sampleData = generateData();
+        for (ParseObject data : sampleData) {
             mAdapter.add(data);
         }
         // stash all the data in our backing store
@@ -113,25 +112,24 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnScr
         mAdapter.notifyDataSetChanged();
         mHasRequestedMore = false;
     }
-    private ArrayList<String> generateData() {
+    private ArrayList<ParseObject> generateData() {
 
-        List<ParseObject> parseUrls = null;
+        ArrayList<ParseObject> parseUrls = new ArrayList<ParseObject>();
         ParseQuery<ParseObject> imageUrls = new ParseQuery<ParseObject>("testImages");
-        ArrayList<String> listData = new ArrayList<String>();
+//        ArrayList<String> listData = new ArrayList<String>();
 
         imageUrls.whereExists("URL");
         try {
-            parseUrls = imageUrls.find();
+            parseUrls.addAll(imageUrls.find());
         } catch (ParseException e) {
             e.printStackTrace();
             Log.d(TAG, "Could not connect to Parse!");
         }
-
-        String temp;
+/*
         for(ParseObject p : parseUrls){
             listData.add(p.getString("URL").replace("https", "http").replace(".jpg", "m.jpg"));
         }
-
+*/
         /*
         listData.add("http://i.imgur.com/axsMCaZm.jpg");
         listData.add("http://i.imgur.com/ellWkvRm.jpg");
@@ -154,6 +152,7 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnScr
         listData.add("http://i58.tinypic.com/2e3daug.jpg");
         listData.add("http://i59.tinypic.com/2igznfr.jpg");
 */
-        return listData;
+        return parseUrls;
+        //return listData;
     }
 }

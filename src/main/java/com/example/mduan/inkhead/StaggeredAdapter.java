@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.etsy.android.grid.util.DynamicHeightImageView;
+import com.parse.ParseObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.Random;
 /**
  * Created by Abhinav on 4/23/2015.
  */
-public class StaggeredAdapter extends ArrayAdapter<String>{
+public class StaggeredAdapter extends ArrayAdapter<ParseObject>{
 
     private static final String TAG = "SampleAdapter";
 
@@ -29,7 +30,7 @@ public class StaggeredAdapter extends ArrayAdapter<String>{
     private final Random mRandom;
     private static final SparseArray<Double> sPositionHeightRatios = new SparseArray<Double>();
 
-    public StaggeredAdapter(Context context, int textViewResourceId, ArrayList<String> objects) {
+    public StaggeredAdapter(Context context, int textViewResourceId, ArrayList<ParseObject> objects) {
         super(context, textViewResourceId, objects);
         this.mLayoutInflater = LayoutInflater.from(context);
         this.mRandom = new Random();
@@ -54,12 +55,16 @@ public class StaggeredAdapter extends ArrayAdapter<String>{
 
         double positionHeight = getPositionRatio(position);
 
-        new DownloadImageTask(vh.imgView).execute(getItem(position));
+        new DownloadImageTask(vh.imgView).execute(getURL(position));
         return convertView;
     }
 
     static class ViewHolder {
         DynamicHeightImageView imgView;
+    }
+
+    public String getURL(int position){
+        return getItem(position).getString("URL").replace("https","http").replace(".jpg", "m.jpg");
     }
 
 private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
