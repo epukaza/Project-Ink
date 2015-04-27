@@ -24,7 +24,6 @@ import java.util.Random;
  * Created by Abhinav on 4/23/2015.
  */
 public class StaggeredAdapter extends ArrayAdapter<ParseObject>{
-
     private static final String TAG = "SampleAdapter";
 
     private final LayoutInflater mLayoutInflater;
@@ -55,7 +54,7 @@ public class StaggeredAdapter extends ArrayAdapter<ParseObject>{
             vh = (ViewHolder) convertView.getTag();
         }
 
-        double positionHeight = getPositionRatio(position);
+        vh.imgView.setHeightRatio(getPositionRatio(position));
         vh.textView.setText(getShortDesc(position));
 
         new DownloadImageTask(vh.imgView).execute(getURL(position));
@@ -76,6 +75,7 @@ public class StaggeredAdapter extends ArrayAdapter<ParseObject>{
         return getItem(position).getString("URL").replace("https","http").replace(".jpg", "m.jpg");
     }
 
+
 private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     ImageView bmImage;
 
@@ -95,6 +95,7 @@ private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         }
         return mIcon11;
     }
+
 
     protected void onPostExecute(Bitmap result) {
         bmImage.setImageBitmap(result);

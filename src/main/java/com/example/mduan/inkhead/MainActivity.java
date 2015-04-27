@@ -1,5 +1,6 @@
 package com.example.mduan.inkhead;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -71,8 +72,9 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnScr
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
         Toast.makeText(this, "Item Clicked: " + position, Toast.LENGTH_SHORT).show();
-        //Intent i = new Intent("PhotoDetailActivity.class");
-        //i.putExtra();
+        Intent i = new Intent(this, PhotoDetailActivity.class);
+        CustomApplication.setCurrentObject(mData.get(position));
+        startActivity(i);
     }
 
     @Override
