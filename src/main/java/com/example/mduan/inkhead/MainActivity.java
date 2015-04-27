@@ -12,8 +12,12 @@ import android.widget.Toast;
 
 import com.etsy.android.grid.StaggeredGridView;
 import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity implements AbsListView.OnScrollListener, AbsListView.OnItemClickListener, AdapterView.OnItemLongClickListener{
@@ -107,11 +111,35 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnScr
     }
     private ArrayList<String> generateData() {
 
+        List<ParseObject> parseUrls = null;
+        ParseQuery<ParseObject> imageUrls = new ParseQuery<ParseObject>("testImages");
         ArrayList<String> listData = new ArrayList<String>();
-        listData.add("https://i.imgur.com/axsMCaZm.jpg");
-        listData.add("https://i.imgur.com/ellWkvRm.jpg");
-        listData.add("https://i.imgur.com/FPJRWm.jpg");
+
+        imageUrls.whereExists("URL");
+        try {
+            parseUrls = imageUrls.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.d(TAG, "Could not connect to Parse!");
+        }
+
+        String temp;
+        for(ParseObject p : parseUrls){
+            listData.add(p.getString("URL").replace("https", "http").replace(".jpg", "m.jpg"));
+        }
+
+        /*
+        listData.add("http://i.imgur.com/axsMCaZm.jpg");
+        listData.add("http://i.imgur.com/ellWkvRm.jpg");
         listData.add("http://i.imgur.com/FPJRWm.jpg");
+        listData.add("http://i.imgur.com/u39aGbHm.jpg");
+        listData.add("http://i.imgur.com/xCVfzgdm.jpg");
+        listData.add("http://i.imgur.com/V5ZfbTBm.jpg");
+        listData.add("http://i.imgur.com/tUJxHXjm.jpg");
+        listData.add("http://i.imgur.com/yioKkAom.jpg");
+        listData.add("http://i.imgur.com/IjtraNpm.jpg");
+        */
+
 /*        ArrayList<String> listData = new ArrayList<String>();
         listData.add("http://i62.tinypic.com/2iitkhx.jpg");
         listData.add("http://i61.tinypic.com/w0omeb.jpg");
