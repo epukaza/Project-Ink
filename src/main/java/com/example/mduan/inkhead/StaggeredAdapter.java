@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.etsy.android.grid.util.DynamicHeightImageView;
 import com.parse.ParseObject;
@@ -47,6 +48,7 @@ public class StaggeredAdapter extends ArrayAdapter<ParseObject>{
             vh = new ViewHolder();
             vh.imgView = (DynamicHeightImageView) convertView
                     .findViewById(R.id.imgView);
+            vh.textView = (TextView) convertView.findViewById(R.id.text_short_description);
 
             convertView.setTag(vh);
         } else {
@@ -54,13 +56,20 @@ public class StaggeredAdapter extends ArrayAdapter<ParseObject>{
         }
 
         double positionHeight = getPositionRatio(position);
+        vh.textView.setText(getShortDesc(position));
 
         new DownloadImageTask(vh.imgView).execute(getURL(position));
+
         return convertView;
     }
 
     static class ViewHolder {
         DynamicHeightImageView imgView;
+        TextView textView;
+    }
+
+    public String getShortDesc(int position){
+        return getItem(position).getString("shortDescription");
     }
 
     public String getURL(int position){
