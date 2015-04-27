@@ -32,6 +32,7 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnScr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
         // Enable Local Datastore.
         //Parse.enableLocalDatastore(this);
@@ -69,7 +70,10 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnScr
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
         Toast.makeText(this, "Item Clicked: " + position, Toast.LENGTH_SHORT).show();
+        //Intent i = new Intent("PhotoDetailActivity.class");
+        //i.putExtra();
     }
 
     @Override

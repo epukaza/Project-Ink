@@ -9,10 +9,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".FirstPage"
-            android:label="InkHead" >
+            android:label="InkHead"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,11 +22,13 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme">
         </activity>
         <activity
             android:name=".UserPhotoWall"
-            android:label="@string/title_activity_user_photo_wall" >
+            android:label="@string/title_activity_user_photo_wall"
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 

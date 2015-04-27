@@ -29,8 +29,7 @@ public class StaggeredAdapter extends ArrayAdapter<String>{
     private final Random mRandom;
     private static final SparseArray<Double> sPositionHeightRatios = new SparseArray<Double>();
 
-    public StaggeredAdapter(Context context, int textViewResourceId,
-                         ArrayList<String> objects) {
+    public StaggeredAdapter(Context context, int textViewResourceId, ArrayList<String> objects) {
         super(context, textViewResourceId, objects);
         this.mLayoutInflater = LayoutInflater.from(context);
         this.mRandom = new Random();
