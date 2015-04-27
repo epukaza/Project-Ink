@@ -11,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.parse.Parse;
-
 
 public class FirstPage extends ActionBarActivity {
 
@@ -20,7 +18,6 @@ public class FirstPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_first_page);
-
     }
 
 
@@ -46,7 +43,6 @@ public class FirstPage extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     /** Called when the user clicks the Artist button */
     public void chooseArtist(View view) {
         //  Intent intent = new Intent(this, ArtistProfile.class);
@@ -56,7 +52,7 @@ public class FirstPage extends ActionBarActivity {
 
     /** Called when the user clicks the Canvas button */
     public void chooseCanvas(View view) {
-        Intent intent = new Intent(this, UserPhotoWall.class);
+        Intent intent = new Intent(this, MainActivity.class);
         // Do something in response to button
         startActivity(intent);
     }
