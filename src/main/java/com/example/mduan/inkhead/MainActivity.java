@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnScr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
+        //Parse.enableLocalDatastore(this);
         Parse.initialize(this, "lPxykPJYeGFvC4wntofRpIfurIxBsD5F863NZKOM", "x3ofUyzEhn2m7CY4F875HPr0wDGQiYQwHkB1VpRB");
         mData = generateData();
         mGridView = (StaggeredGridView) findViewById(R.id.grid_view);
