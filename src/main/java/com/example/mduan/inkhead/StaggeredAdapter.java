@@ -57,7 +57,8 @@ public class StaggeredAdapter extends ArrayAdapter<ParseObject>{
         vh.imgView.setHeightRatio(getPositionRatio(position));
         vh.textView.setText(getShortDesc(position));
 
-        new DownloadImageTask(vh.imgView).execute(getURL(position));
+        getImage();
+        new DownloadImageTask(vh.imgView).execute(getMediumURL(position));
 
         return convertView;
     }
@@ -67,11 +68,14 @@ public class StaggeredAdapter extends ArrayAdapter<ParseObject>{
         TextView textView;
     }
 
+    private void getImage(){
+
+    }
     public String getShortDesc(int position){
         return getItem(position).getString("shortDescription");
     }
 
-    public String getURL(int position){
+    public String getMediumURL(int position){
         return getItem(position).getString("URL").replace("https","http").replace(".jpg", "m.jpg");
     }
 
